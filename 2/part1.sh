@@ -5,8 +5,6 @@ count=0
 
 for line in $(cat input.txt)
 do
-  originalLine=$line
-
   #Parse the line into useful variables
   lowerBound=(${line%%"-"*})
   line=${line#*"-"}
@@ -16,17 +14,18 @@ do
   line=${line#*" "}
   password=$line
 
-  # Take all the other letters out of password, leaving only "$letter"
+  # Take all the other letters out of password, leaving only instances `letter`
   stripped=${password//[^$letter]}
-
-  #See if it meets our requirements
+  # This makes it easy to count the number of occurances of `letter`
   length=${#stripped}
+
+  # See if it meets our requirements
   if [ $length -lt $lowerBound ] || [ $length -gt $upperBound ]
   then
-    echo "Password invalid! $originalLine"
+    continue
   else
     count=$((count + 1))
   fi
 done
 
-echo $count
+echo "Number of valid passwords is $count"

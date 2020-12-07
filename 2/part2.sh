@@ -33,4 +33,4 @@ do
   fi
  done
 
-echo $count
+echo "Number of valid passwords is $count"
