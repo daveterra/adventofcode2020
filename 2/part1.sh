@@ -20,10 +20,8 @@ do
   length=${#stripped}
 
   # See if it meets our requirements
-  if [ $length -lt $lowerBound ] || [ $length -gt $upperBound ]
+  if [ $length -ge $lowerBound ] && [ $length -le $upperBound ]
   then
-    continue
-  else
     count=$((count + 1))
   fi
 done

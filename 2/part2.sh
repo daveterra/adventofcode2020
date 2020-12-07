@@ -5,9 +5,7 @@ count=0
 
 for line in $(cat input.txt)
 do
-  originalLine=$line
-
-  #Parse the line into useful variables
+  # Parse the line into useful variables
   lowerBound=(${line%%"-"*})
   line=${line#*"-"}
   upperBound=(${line%%" "*})
@@ -23,7 +21,7 @@ do
   first=${password:$lowerBound:1}
   second=${password:$upperBound:1}
 
-  #See if it meets our requirements
+  # See if it meets our requirements
   if [ $first = $second ]
   then
     continue
