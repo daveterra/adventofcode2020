@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 checkPassport() {
   requiredFields="byr iyr eyr hgt hcl ecl pid"
   passport=$1
